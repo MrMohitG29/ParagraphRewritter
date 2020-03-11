@@ -1,0 +1,12 @@
+#```````````````````seprate the words````````````````````````````
+
+from nltk.tokenize import word_tokenize
+text = input("Enter your text : ")
+print(word_tokenize(text)) #seprate the words
+
+
+#`````````````````seprate the sentenece``````````````````````````
+
+from nltk.tokenize import send_tokenize
+text = input("Enter your text : ")
+print(sent_tokenize(text)) 

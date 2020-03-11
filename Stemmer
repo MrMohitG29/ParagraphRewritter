@@ -1,0 +1,16 @@
+#````````````` Find the root of every word``````````````````
+
+from nltk.stem import PorterStemmer
+from nltk.tokenize import *
+sentence = "she is studying"
+word = word_tokenize(sentence)
+ps = PorterStemmer()
+for w in word:
+    rootWord = ps.stem(w)
+    print(rootWord)
+    
+    
+#```````Output
+she
+is
+studi

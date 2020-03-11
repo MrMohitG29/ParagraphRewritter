@@ -1,1 +1,41 @@
+from nltk.tokenize import *
+from nltk.corpus import wordnet
+from nltk import pos_tag
 
+text = input("Enter your paragaph : ")
+word_list = list(word_tokenize(text))
+
+use_pos_tag = [
+'NN' , 'NNS' , 'JJ' , 'JJS' , 'JJR' , 'RB','RBR' , 'RBS', 'RP' , 'UH' , 'VB'] #pos tag of word we are gonna use
+replace_word = []
+
+text_pos_tag = pos_tag(word_list) #pos tag of every word
+
+
+for i in text_pos_tag:
+    if i[1] in use_pos_tag:
+        replace_word.append(i[0]) #get word we can replace by matching there text_pos_tag from use_pos_tag
+        
+temp_text = text #copy of input
+
+Satisfied = True  #boolean variable for loop
+count = 0
+while(Satisfied):
+    text = temp_text #--------------temporary variable for input
+    for i in replace_word:
+        synonyms = [] #----------------------------empty list for get all synonyms
+        for syn in wordnet.synsets(i):
+            for l in syn.lemmas():
+                synonyms.append(l.name())
+        
+            if len(synonyms) > count: #------------------check if we have enough number of synonyms of word to be replace
+                if '_' not in list(synonyms[count]): 
+                        text = text.replace(i,synonyms[count]) #----------------replacing the word in temporary variable text
+                        
+    print(f"\n\nHeres the {count} output : {text}")
+    count = count + 1
+    Satisfied = input("\n\nType Yes if you are satisfy with rewriter otherwise type No : ") #----ask if user want to rewrite again
+    if Satisfied == "Yes":
+        break
+    else:
+        Satisfied = True

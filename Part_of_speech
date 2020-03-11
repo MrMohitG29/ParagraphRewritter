@@ -1,0 +1,22 @@
+#````````````````````````Part of speech``````````````
+
+from nltk import pos_tag
+from nltk.tokenize import *
+text = "Hey!! i am getting so bore"
+token = word_tokenize(text)
+for i in pos_tag(token):
+    print(f"{i[0]} == {i[1]}")
+    
+    
+    
+#``````````````Output```````````````````
+Hey == NN
+! == .
+! == .
+i == NN
+am == VBP
+getting == VBG
+so == RB
+bore == RB
+
+#~~~~~~~~~~For further information visit https://www.guru99.com/pos-tagging-chunking-nltk.html

@@ -1,0 +1,8 @@
+#NLTK stands for Natural Language Toolkit. 
+#This toolkit is one of the most powerful NLP libraries which contains packages to make machines understand 
+#human language and reply to it with an appropriate response. 
+#Tokenization, Stemming, Lemmatization, Punctuation, Character count, word count are some of these packages
+
+#How to install NlTK
+
+pip install nltk
